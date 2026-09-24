@@ -1,0 +1,159 @@
+/* Custom CSS Styles & Polish for Altınbaş University AUDSA Dentistry 5.0 */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-navy: #0F172A;
+  --royal-blue: #1E3A8A;
+  --accent-cyan: #06B6D4;
+  --accent-teal: #0D9488;
+  --soft-bg: #F8FAFC;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748B;
+}
+
+/* Glassmorphism Styles */
+.glass-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(241, 245, 249, 1);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.08), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
+}
+
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle Medical Background Mesh Grid */
+.bg-mesh-grid {
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(30, 58, 138, 0.04) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(13, 148, 136, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(6, 182, 212, 0.04) 0px, transparent 50%),
+    linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Modern Gradient Glows */
+.hero-glow-1 {
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.25) 0%, rgba(30, 58, 138, 0) 70%);
+}
+.hero-glow-2 {
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.2) 0%, rgba(6, 182, 212, 0) 70%);
+}
+
+/* Tooth Logo SVG Glow */
+.tooth-glow {
+  filter: drop-shadow(0 0 12px rgba(20, 184, 166, 0.35));
+}
+
+/* Timeline Components */
+.timeline-stem {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  width: 2px;
+  background: linear-gradient(to bottom, #CBD5E1, #0D9488, #CBD5E1);
+}
+
+@media (min-width: 768px) {
+  .timeline-stem {
+    left: 120px;
+  }
+}
+
+/* Badge Pulse */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+/* Transition for i18n smooth switch */
+.lang-fade {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.lang-fade-out {
+  opacity: 0;
+  transform: translateY(2px);
+}
+.lang-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accordion transition helper */
+.accordion-content {
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+/* Modal Blur Backdrop */
+.modal-overlay {
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Print Optimization */
+@media print {
+  nav, footer, .no-print, button {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  #schedule {
+    display: block !important;
+  }
+}
