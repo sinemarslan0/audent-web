@@ -1,7 +1,7 @@
 /**
  * Altınbaş University Faculty of Dentistry - AUDSA
  * DENTISTRY 5.0: DİJİTALDEN BİREYSELE SEMPOZYUMU
- * Core Data File (Speakers, Schedule, FAQ, Organizers)
+ * Core Data File (Resmi PDF Kaynakları ve Güncel Veriler)
  */
 
 const symposiumData = {
@@ -23,19 +23,19 @@ const symposiumData = {
       en: "Science • Innovation • Human-Centered Dentistry — For healthier tomorrows..."
     },
     dates: {
-      tr: "24 - 25 Ekim 2026",
-      en: "October 24 - 25, 2026"
+      tr: "5 Aralık 2026",
+      en: "December 5, 2026"
     },
-    targetCountdownDate: "2026-10-24T09:30:00+03:00",
-    registrationFormUrl: "https://forms.gle/AUDSA-Dentistry5-Kayit",
+    targetCountdownDate: "2026-12-05T09:00:00+03:00",
+    registrationFormUrl: "https://forms.gle/BFu1sdK98rwNL6zg8",
     venue: {
       name: {
-        tr: "Altınbaş Üniversitesi Bakırköy Sağlık Yerleşkesi",
-        en: "Altinbas University Bakirkoy Health Campus"
+        tr: "Altınbaş Üniversitesi Bakırköy Yerleşkesi & Altınbaş Diş Hastanesi",
+        en: "Altinbas University Bakirkoy Campus & Altinbas Dental Hospital"
       },
       hall: {
-        tr: "Büyük Oditoryum & Zemin Kat Fuaye Alanı",
-        en: "Grand Auditorium & Ground Floor Foyer"
+        tr: "Büyük Oditoryum & Klinik Hands-on Üniteleri",
+        en: "Grand Auditorium & Clinical Hands-on Suites"
       },
       address: {
         tr: "Zuhuratbaba Mah. İncirli Cad. No:11, 34147 Bakırköy / İstanbul",
@@ -47,17 +47,17 @@ const symposiumData = {
   stats: [
     {
       id: "speakers",
-      number: "15+",
+      number: "7+",
       icon: "mic",
-      title: { tr: "Uzman Konuşmacı", en: "Keynote Speakers" },
-      desc: { tr: "Alanında öncü akademisyenler ve klinik uzmanlar", en: "Leading academicians and clinical experts" }
+      title: { tr: "Seçkin Konuşmacı", en: "Keynote Speakers" },
+      desc: { tr: "Alanında öncü akademisyenler ve klinik uzmanlar", en: "Leading academicians and clinical specialists" }
     },
     {
       id: "workshops",
-      number: "8+",
+      number: "2",
       icon: "activity",
-      title: { tr: "Hands-on Workshop", en: "Hands-on Workshops" },
-      desc: { tr: "Birebir uygulamalı pratik beceri eğitimleri", en: "One-on-one practical hands-on skill training" }
+      title: { tr: "Özel Hands-on Eğitim", en: "Special Hands-on Courses" },
+      desc: { tr: "20'şer kişilik sınırlı kontenjanla birebir klinik uygulama", en: "Strictly limited to 20 seats each with hands-on practice" }
     },
     {
       id: "attendees",
@@ -71,62 +71,35 @@ const symposiumData = {
       number: "100%",
       icon: "award",
       title: { tr: "Akredite Sertifika", en: "Accredited Certificate" },
-      desc: { tr: "Resmi onaylı katılım belgesi ve SDE puanı", en: "Officially certified attendance & CPD credits" }
+      desc: { tr: "Fakülte ve AUDSA onaylı resmi katılım belgesi", en: "Official verified certificate & CPD credits" }
     }
   ],
 
+  // 7 Resmi Konuşmacı (Resmi PDF Biyografileri ve Yüksek Çözünürlüklü Portreleri)
   speakers: [
-    {
-      id: "ahmet-mutluer",
-      name: "Ahmet Serdar Mutluer",
-      title: {
-        tr: "Dijital Diş Hekimliği & CAD/CAM Uzmanı",
-        en: "Digital Dentistry & CAD/CAM Specialist"
-      },
-      institution: {
-        tr: "Dijital Dental Çözümler & İnovasyon Merkezi",
-        en: "Digital Dental Solutions & Innovation Center"
-      },
-      topic: {
-        tr: "Dijital Diş Hekimliğinde CAD/CAM İş Akışı ve Yapay Zeka Entegrasyonu",
-        en: "CAD/CAM Workflow and Artificial Intelligence Integration in Digital Dentistry"
-      },
-      bio: {
-        tr: "Ahmet Serdar Mutluer, dijital diş hekimliği, 3D ağız içi tarama, laboratuvar CAD/CAM entegrasyonu ve yapay zeka destekli protetik tasarım süreçlerinde Türkiye'nin önde gelen isimlerindendir. Çok sayıda ulusal ve uluslararası sempozyumda canlı dijital iş akışı demonstrasyonları gerçekleştirmiştir.",
-        en: "Ahmet Serdar Mutluer is one of Turkey's foremost experts in digital dentistry, 3D intraoral scanning, lab CAD/CAM integration, and AI-driven prosthetic design. He has conducted numerous live digital workflow demonstrations across international symposia."
-      },
-      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80",
-      badge: "CAD/CAM & AI",
-      time: "10:00 - 10:40",
-      day: 1,
-      socials: {
-        linkedin: "https://linkedin.com",
-        scholar: "https://scholar.google.com",
-        email: "contact@audsa.org"
-      }
-    },
     {
       id: "selim-pamuk",
       name: "Prof. Dr. Selim Pamuk",
       title: {
-        tr: "Protetik Diş Tedavisi Uzmanı & Öğretim Üyesi",
-        en: "Prosthodontics Specialist & Professor"
+        tr: "Protetik Diş Tedavisi Uzmanı & EDAD Kurucusu",
+        en: "Prosthodontics Specialist, Founder of EDAD & IFED Board Member"
       },
       institution: {
-        tr: "Diş Hekimliği Fakültesi, Protetik Diş Tedavisi A.D.",
-        en: "Faculty of Dentistry, Department of Prosthodontics"
+        tr: "İstanbul Üniversitesi Diş Hekimliği Fakültesi (E.) & EDAD",
+        en: "Istanbul University Faculty of Dentistry (Ret.) & EDAD"
       },
       topic: {
         tr: "Dijitalden Bireysele: Protetik Restorasyonlarda Biyomimetik ve Estetik Yaklaşımlar",
         en: "From Digital to Individual: Biomimetic and Aesthetic Approaches in Prosthetic Restorations"
       },
       bio: {
-        tr: "Prof. Dr. Selim Pamuk, protetik diş hekimliği, biyomimetik restoratif prensipler ve oklüzyon alanlarında uluslararası literatüre katkı sağlamış duayen bir akademisyendir. Bireyselleştirilmiş protetik tedavi stratejileri ve gülüş biyolojisi üzerine geniş bir klinik tecrübeye sahiptir.",
-        en: "Prof. Dr. Selim Pamuk is a renowned academician who has significantly contributed to prosthodontics literature, biomimetic restorative principles, and occlusion. He holds extensive clinical expertise in patient-customized prosthetic rehabilitation and smile biology."
+        tr: "Galatasaray Lisesi’nin ardından İstanbul Üniversitesi Diş Hekimliği Fakültesi’nden mezun olmuş ve Prostetik Diş Tedavisi Anabilim Dalı Kuron-Köprü Protezleri Bilim Dalı’nda doktora eğitimini tamamlamıştır. Akademik kariyerinde doçentlik ve profesörlük unvanlarını alarak uzun yıllar İstanbul Üniversitesi Diş Hekimliği Fakültesi’nde öğretim üyesi olarak görev yapmıştır. EDAD’ın kurucuları arasında yer alan ve başkanlığını da yürüten Prof. Dr. Pamuk, aynı zamanda IFED yönetim kurulu üyesidir. İmplantoloji, estetik diş hekimliği ve dijital diş hekimliği başlıca ilgi ve çalışma alanlarıdır.",
+        en: "Following Galatasaray High School, he graduated from Istanbul University Faculty of Dentistry and completed his doctorate in Department of Prosthodontics, Crown-Bridge Prostheses division. After earning Associate Professor and Professor titles, he taught for many years at Istanbul University. A founder and former president of EDAD (Aesthetic Dentistry Academy), Prof. Dr. Pamuk is also a board member of IFED. His core expertise includes implantology, aesthetic dentistry, and digital workflows."
       },
-      image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80",
+      image: "assets/speakers/selim_pamuk.jpg",
       badge: "Protetik & Estetik",
-      time: "11:00 - 11:40",
+      category: "keynote",
+      time: "10:00 - 10:45",
       day: 1,
       socials: {
         linkedin: "https://linkedin.com",
@@ -142,20 +115,21 @@ const symposiumData = {
         en: "Orthodontics Specialist & Professor"
       },
       institution: {
-        tr: "Ortodonti Anabilim Dalı",
-        en: "Department of Orthodontics"
+        tr: "Altınbaş Üniversitesi Diş Hekimliği Fakültesi Ortodonti A.D.",
+        en: "Altinbas University Faculty of Dentistry, Department of Orthodontics"
       },
       topic: {
         tr: "Modern Ortodontide Şeffaf Plak Biyomekaniği ve 3D Tedavi Planlama",
         en: "Clear Aligner Biomechanics and 3D Treatment Planning in Modern Orthodontics"
       },
       bio: {
-        tr: "Prof. Dr. Korkmaz Sayınsu, ortodonti disiplininde şeffaf plak sistemleri, kraniofasiyal ortopedi ve dijital tedavi simülasyonları konularında sayısız bilimsel yayın ve uluslararası konferans sunumuna imza atmıştır. Ortodontide öngörülebilir kuvvet sistemleri üzerine araştırmalarını sürdürmektedir.",
-        en: "Prof. Dr. Korkmaz Sayınsu is a prominent orthodontic authority specializing in clear aligner mechanics, craniofacial orthopedics, and digital treatment simulations with countless scientific papers and global lecture appearances."
+        tr: "Marmara Üniversitesi Diş Hekimliği Fakültesi’nden mezun olduktan sonra aynı üniversitenin Ortodonti Anabilim Dalı’nda doktora eğitimini tamamlamıştır. Akademik kariyerine Yeditepe Üniversitesi’nde devam ederek Yardımcı Doçent ve Doçent unvanlarını almış, daha sonra Altınbaş Üniversitesi Diş Hekimliği Fakültesi Ortodonti Anabilim Dalı’nda Profesör olarak görev yapmıştır. Akademik ve klinik çalışmalarını özellikle ortodontik tedavi, ortognatik cerrahi ve temporomandibular eklem odaklı tedaviler üzerine sürdürmektedir. Ulusal ve uluslararası eğitim programlarında eğitmen olarak görev almakta, bilimsel toplantı ve kurslarda aktif olarak yer almaktadır.",
+        en: "Graduated from Marmara University Faculty of Dentistry and earned his PhD from the same university's Department of Orthodontics. He continued his academic career at Yeditepe University earning Assistant and Associate Professor titles, later serving as Professor at Altinbas University Department of Orthodontics. His clinical and research focus centers on orthodontic therapy, orthognathic surgery, and TMJ management, actively lecturing in national and international forums."
       },
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80",
-      badge: "Şeffaf Plak & 3D Planlama",
-      time: "12:00 - 12:40",
+      image: "assets/speakers/korkmaz_sayinsu.jpg",
+      badge: "Ortodonti & 3D Planlama",
+      category: "keynote",
+      time: "11:00 - 11:45",
       day: 1,
       socials: {
         linkedin: "https://linkedin.com",
@@ -164,98 +138,346 @@ const symposiumData = {
       }
     },
     {
-      id: "sevgin-sen",
-      name: "Dr. Dt. Sevgin Şen",
+      id: "nuray-yilmaz-altintas",
+      name: "Prof. Dr. Nuray Yılmaz Altıntaş",
       title: {
-        tr: "Estetik Diş Hekimi & Protetik Uzmanı",
-        en: "Aesthetic Dentist & Prosthodontist"
+        tr: "Ağız, Diş ve Çene Cerrahisi Uzmanı & Öğretim Üyesi",
+        en: "Oral & Maxillofacial Surgery Specialist & Associate Professor"
       },
       institution: {
-        tr: "Estetik Diş Hekimliği Akademisi Üyesi",
-        en: "Member of Aesthetic Dentistry Academy"
+        tr: "Altınbaş Üniversitesi Diş Hekimliği Fakültesi Çene Cerrahisi A.D.",
+        en: "Altinbas University Faculty of Dentistry, Maxillofacial Surgery Dept."
       },
       topic: {
-        tr: "Minimal İnvaziv Estetik Yaklaşımlar ve Dijital Gülüş Tasarımı (DSD)",
-        en: "Minimally Invasive Aesthetic Approaches and Digital Smile Design (DSD)"
+        tr: "Çene Cerrahisinde İleri Ogmentasyon ve Biyolojik İmplant Protokolleri",
+        en: "Advanced Augmentation & Biological Implant Protocols in Maxillofacial Surgery"
       },
       bio: {
-        tr: "Dr. Dt. Sevgin Şen, porselen lamina veneerler, mikro-invaziv preparasyon teknikleri ve dijital gülüş tasarımı mimarisi üzerine uzmanlaşmıştır. Diş dokusunun maksimum korunmasını hedefleyen modern adeziv protokollerin öncülerindendir.",
-        en: "Dr. Dt. Sevgin Sen specializes in porcelain laminate veneers, micro-invasive preparation techniques, and digital smile design architecture, championing modern adhesive protocols for maximal tooth structure preservation."
+        tr: "Marmara Üniversitesi Diş Hekimliği Fakültesi’nden mezun olduktan sonra Karadeniz Teknik Üniversitesi Ağız, Diş ve Çene Cerrahisi Anabilim Dalı’nda uzmanlık ve akademik eğitimini tamamlamıştır. Akademik kariyerine Karadeniz Teknik Üniversitesi’nde devam ederek Yardımcı Doçent ve Doçent unvanlarını almış, Ohio State Üniversitesi’nde gözlemci araştırmacı olarak bulunmuştur. Halen Altınbaş Üniversitesi Ağız, Diş ve Çene Cerrahisi Anabilim Dalı’nda görev yapan Prof. Dr. Altıntaş, AÇBİD, EACMFS ve EAO gibi ulusal ve uluslararası mesleki kuruluşların üyesidir.",
+        en: "After graduating from Marmara University Faculty of Dentistry, she completed her specialization and academic training at Karadeniz Technical University Department of Oral and Maxillofacial Surgery. She served as Assistant and Associate Professor there and worked as a visiting scholar at Ohio State University. Currently faculty at Altinbas University, she is an active member of ACBİD, EACMFS, and EAO."
       },
-      image: "https://images.unsplash.com/photo-1594824813511-1358f2780e22?auto=format&fit=crop&w=600&q=80",
-      badge: "Dijital Gülüş Tasarımı",
-      time: "13:40 - 14:20",
+      image: "assets/speakers/nuray_yilmaz_altintas.jpg",
+      badge: "Çene Cerrahisi & İmplantoloji",
+      category: "keynote",
+      time: "12:00 - 12:45",
       day: 1,
       socials: {
         linkedin: "https://linkedin.com",
         scholar: "https://scholar.google.com",
-        email: "sevgin.sen@audsa.org"
+        email: "nuray.altintas@altinbas.edu.tr"
       }
     },
     {
-      id: "nuray-subutay-altintas",
-      name: "Prof. Dr. Nuray Altıntaş & Prof. Dr. Subutay Altıntaş",
+      id: "subutay-han-altintas",
+      name: "Prof. Dr. Subutay Han Altıntaş",
       title: {
-        tr: "Ağız Diş Çene Cerrahisi & Protetik Cerrahi Ortak Paneli",
-        en: "Oral & Maxillofacial Surgery and Prosthetic Joint Panel"
+        tr: "Protetik Diş Tedavisi Uzmanı & Öğretim Üyesi",
+        en: "Prosthodontics Specialist & Professor"
       },
       institution: {
-        tr: "Ağız, Diş ve Çene Cerrahisi & Biyomalzemeler A.D.",
-        en: "Oral & Maxillofacial Surgery & Biomaterials Dept."
+        tr: "İstanbul Aydın Üniversitesi & Nişantaşı Kliniği",
+        en: "Istanbul Aydin University & Nisantasi Clinic"
       },
       topic: {
-        tr: "Cerrahi ve Protetik Açıdan İmplantolojide Güncel Trendler ve Kemik Rejenerasyonu",
-        en: "Current Trends in Surgical and Prosthetic Implantology & Bone Regeneration"
+        tr: "Kişiselleştirilmiş Protetik Planlama ve Biyomalzeme Dinamikleri",
+        en: "Personalized Prosthetic Planning and Biomaterial Dynamics"
       },
       bio: {
-        tr: "Prof. Dr. Nuray Altıntaş ve Prof. Dr. Subutay Altıntaş, cerrahi ve protetik iş birliğinin implant başarısındaki kilit rolünü ele almaktadır. Kemik ogmentasyonları, sinüs tabanı yükseltme ve kişiselleştirilmiş subperiostal implant teknolojilerinde öncü çalışmalara sahiptirler.",
-        en: "Prof. Dr. Nuray Altintas and Prof. Dr. Subutay Altintas present a synergistic surgical and prosthetic approach to implantology, featuring advanced guided bone regeneration, sinus floor elevations, and customized subperiosteal implants."
+        tr: "Marmara Üniversitesi Diş Hekimliği Fakültesi’nden mezun olduktan sonra Selçuk Üniversitesi Protetik Diş Tedavisi Anabilim Dalı’nda doktora eğitimini tamamlamıştır. Akademik kariyerine Karadeniz Teknik Üniversitesi’nde başlayan Altıntaş, doçentlik ve profesörlük unvanlarını almıştır. Finlandiya Oulu Üniversitesi ve Ohio State Üniversitesi’nde akademik çalışmalar ve araştırmalar gerçekleştirmiş; lazer uygulamaları üzerine çeşitli uluslararası eğitim ve sertifika programlarını tamamlamıştır. Ulusal ve uluslararası dergilerde yayımlanmış çok sayıda bilimsel çalışması ve kongre ödülleri bulunan Prof. Dr. Altıntaş, halen İstanbul Aydın Üniversitesi’nde profesör olarak görev yapmakta ve Nişantaşı’ndaki kliniğinde çalışmalarını sürdürmektedir.",
+        en: "Graduated from Marmara University Faculty of Dentistry and completed his PhD at Selcuk University Department of Prosthodontics. Beginning his career at KTU, he achieved Associate Professor and Professor ranks. He conducted international research at University of Oulu (Finland) and Ohio State University, completing laser dentistry certifications. Widely published with numerous congress awards, he currently serves as Professor at Istanbul Aydin University and practices at his clinic in Nisantasi."
       },
-      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80",
-      badge: "İleri İmplantoloji & Cerrahi",
-      time: "14:40 - 15:20",
+      image: "assets/speakers/subutay_han_altintas.jpg",
+      badge: "Protetik & Biyomalzemeler",
+      category: "keynote",
+      time: "13:30 - 14:15",
       day: 1,
       socials: {
         linkedin: "https://linkedin.com",
         scholar: "https://scholar.google.com",
-        email: "cerrahi@audsa.org"
+        email: "subutay.altintas@altinbas.edu.tr"
       }
     },
     {
-      id: "elena-rostova",
-      name: "Assoc. Prof. Dr. Maya Lindqvist",
+      id: "mehmet-ferit-erel",
+      name: "Dr. Mehmet Ferit Erel",
       title: {
-        tr: "Biyomalzemeler & Rejeneratif Diş Hekimliği Uzmanı",
-        en: "Biomaterials & Regenerative Dentistry Specialist"
+        tr: "Yapay Zeka & Akıllı Otomasyon Proje Müdürü / Öğretim Görevlisi",
+        en: "AI & Smart Automation Project Manager / Faculty Lecturer"
       },
       institution: {
-        tr: "Nordic Dental Innovation Institute (İsveç / Konuk Konuşmacı)",
-        en: "Nordic Dental Innovation Institute (Sweden / Guest Speaker)"
+        tr: "Kastamonu Entegre & Altınbaş Üniversitesi",
+        en: "Kastamonu Entegre & Altinbas University"
       },
       topic: {
-        tr: "Diş Hekimliğinde Biyoaktif Seramikler ve Kök Hücre Uygulamaları",
-        en: "Bioactive Ceramics and Stem Cell Applications in Dentistry"
+        tr: "Diş Hekimliğinde Yapay Zeka, Makine Öğrenimi ve Akıllı Dijital Entegrasyon",
+        en: "AI, Machine Learning and Smart Digital Integration in Dentistry"
       },
       bio: {
-        tr: "Dr. Maya Lindqvist, rejeneratif pulpa tedavileri ve biyoseramik materyallerin hücresel yanıtları üzerine uluslararası projeler yürütmektedir. Sempozyumumuzda konuk uluslararası konuşmacı olarak yer almaktadır.",
-        en: "Dr. Maya Lindqvist leads international research on regenerative endodontics and cellular interactions with smart bioceramic matrices as our distinguished international keynote."
+        tr: "Kastamonu Entegre’de Yapay Zeka ve Akıllı Otomasyon Uygulamaları Proje ve Çözüm Müdürü olarak görev yapan Dr. Mehmet Ferit Erel, New York Institute of Technology Elektrik ve Bilgisayar Mühendisliği bölümünden mezun olmuş; yüksek lisansını Galatasaray Üniversitesi Mühendislik Yönetimi’nde, doktorasını ise Elektrik ve Bilgisayar Mühendisliği alanında tamamlamıştır. Turkish Technology, Movus ve Dinçer Logistics gibi şirketlerde kıdemli proje yöneticiliği yapmış olan Dr. Erel, aynı zamanda Altınbaş Üniversitesi bünyesinde yapay zeka, makine öğrenimi ve derin öğrenme üzerine dersler vermektedir.",
+        en: "Serving as AI and Smart Automation Project and Solutions Manager at Kastamonu Entegre, Dr. Mehmet Ferit Erel graduated from New York Institute of Technology in Electrical & Computer Engineering. He earned his Master's in Engineering Management at Galatasaray University and PhD in Electrical & Computer Engineering. Having held senior project roles at Turkish Technology, Movus, and Dincer Logistics, Dr. Erel lectures on AI, machine learning, and deep learning at Altinbas University."
       },
-      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80",
-      badge: "Rejenerasyon & Biyomalzeme",
-      time: "Gün 2 / Day 2",
-      day: 2,
+      image: "assets/speakers/mehmet_ferit_erel.jpg",
+      badge: "Yapay Zeka & İnovasyon",
+      category: "keynote",
+      time: "14:30 - 15:15",
+      day: 1,
       socials: {
         linkedin: "https://linkedin.com",
         scholar: "https://scholar.google.com",
-        email: "international@audsa.org"
+        email: "mehmet.erel@altinbas.edu.tr"
+      }
+    },
+    {
+      id: "sevdenur-gunenc",
+      name: "Dr. Dt. Sevdenur Günenç",
+      title: {
+        tr: "Periodontoloji Uzmanı & Swiss Dental Academy Trainer",
+        en: "Periodontology Specialist & Swiss Dental Academy Trainer"
+      },
+      institution: {
+        tr: "Swiss Dental Academy & Özel Lidya Ağız ve Diş Sağlığı Polikliniği",
+        en: "Swiss Dental Academy & Ozel Lidya Dental Clinic"
+      },
+      topic: {
+        tr: "Guided Biofilm Therapy'de Minimal İnvaziv Biyofilm Yönetimi",
+        en: "Minimally Invasive Biofilm Management in Guided Biofilm Therapy"
+      },
+      bio: {
+        tr: "Biruni Üniversitesi Diş Hekimliği Fakültesi’nden mezun olduktan sonra Altınbaş Üniversitesi’nde Periodontoloji alanında yüksek lisans ve doktora eğitimini tamamlamıştır. Akademik çalışmalarını periodontal tanı, rejeneratif ve cerrahi tedaviler, lazer destekli periodontal uygulamalar, yara iyileşmesi ve hasta odaklı tedavi sonuçları üzerine yoğunlaştırmıştır. Ulusal ve uluslararası bilimsel kongrelerde çalışmalarını sunmuş ve çeşitli araştırmalarda görev almıştır. Swiss Dental Academy bünyesinde Trainer olarak eğitim faaliyetlerini sürdüren Günenç, aynı zamanda Özel Lidya Ağız ve Diş Sağlığı Polikliniği’nin kurucusudur ve klinik çalışmalarına Periodontoloji alanında devam etmektedir.",
+        en: "Graduated from Biruni University Faculty of Dentistry and completed her master's and doctorate in Periodontology at Altinbas University. Her research focuses on periodontal diagnostics, regenerative and surgical therapies, laser-assisted periodontal protocols, wound healing, and patient-centered outcomes. Serving as a certified Trainer at Swiss Dental Academy, Dr. Gunenc is also the founder of Ozel Lidya Dental Clinic where she practices."
+      },
+      image: "assets/speakers/sevdenur_gunenc.jpg",
+      badge: "GBT & Hands-on Eğitmeni",
+      category: "workshop",
+      time: "14:20 - 17:30 (Teorik + Hands-on)",
+      day: 1,
+      socials: {
+        linkedin: "https://linkedin.com",
+        scholar: "https://scholar.google.com",
+        email: "sevdenur.gunenc@altinbas.edu.tr"
+      }
+    },
+    {
+      id: "ahmet-fehmi-sirin",
+      name: "Dr. Öğr. Üyesi Ahmet Fehmi Şirin",
+      title: {
+        tr: "Restoratif Diş Tedavisi Uzmanı & Dr. Öğr. Üyesi",
+        en: "Restorative Dentistry Specialist & Assistant Professor"
+      },
+      institution: {
+        tr: "Altınbaş Üniversitesi Diş Hekimliği Fakültesi Klinik Bilimler Bölümü",
+        en: "Altinbas University Faculty of Dentistry, Clinical Sciences Dept."
+      },
+      topic: {
+        tr: "Anterior Bölgede Kırık Dişlerin Estetik Kapatımı",
+        en: "Aesthetic Restoration of Fractured Anterior Teeth"
+      },
+      bio: {
+        tr: "Bezmialem Vakıf Üniversitesi Diş Hekimliği Fakültesi’nden mezun olmuş ve Kocaeli Üniversitesi Restoratif Diş Tedavisi Anabilim Dalı’nda uzmanlık eğitimini tamamlamıştır. Akademik kariyerine Kocaeli Üniversitesi’nde Araştırma Görevlisi olarak başlayan Şirin, halen Altınbaş Üniversitesi Klinik Bilimler Bölümü’nde Dr. Öğr. Üyesi olarak görev yapmaktadır. Restoratif diş tedavisi alanındaki akademik ve klinik çalışmalarını sürdürmektedir.",
+        en: "Graduated from Bezmialem Vakif University Faculty of Dentistry and completed his specialization at Kocaeli University Department of Restorative Dentistry. Starting his academic career as a Research Assistant at Kocaeli University, Dr. Sirin currently serves as Assistant Professor in the Department of Clinical Sciences at Altinbas University Faculty of Dentistry."
+      },
+      image: "assets/speakers/ahmet_fehmi_sirin.jpg",
+      badge: "Anterior Estetik & Dr. Öğr. Üyesi",
+      category: "workshop",
+      time: "14:20 - 17:30 (Teorik + Hands-on)",
+      day: 1,
+      socials: {
+        linkedin: "https://linkedin.com",
+        scholar: "https://scholar.google.com",
+        email: "ahmet.sirin@altinbas.edu.tr"
       }
     }
   ],
 
+  // 2 Özel Hands-on Eğitim
+  workshops: [
+    {
+      id: "workshop-anterior",
+      title: {
+        tr: "Anterior Bölgede Kırık Dişlerin Estetik Kapatımı",
+        en: "Aesthetic Restoration of Fractured Anterior Teeth"
+      },
+      instructor: "Dr. Öğr. Üyesi Ahmet Fehmi Şirin",
+      instructorTitle: {
+        tr: "Restoratif Diş Tedavisi Uzmanı & Dr. Öğr. Üyesi",
+        en: "Restorative Dentistry Specialist & Assistant Professor"
+      },
+      quota: "20 Kişi",
+      date: "5 Aralık 2026",
+      venue: {
+        tr: "Altınbaş Diş Hastanesi",
+        en: "Altinbas Dental Hospital"
+      },
+      theoreticalTime: "14.20 - 15.00 (Teorik Oturum)",
+      handsOnTime: "16.00 - 17.30 (Hands-on Klinik Uygulama)",
+      curriculum: [
+        { tr: "Anterior kompozit restorasyonlarda doğali taklit", en: "Mimicking nature in anterior composite restorations" },
+        { tr: "Renk seçimi incelikleri ve optik illüzyonlar", en: "Shade selection subtleties & optical illusions" },
+        { tr: "Kırık hattını gizleme ve geçiş teknikleri", en: "Techniques for fracture line masking" },
+        { tr: "Tabakalama protokolleri (Dentin / Mine)", en: "Layering protocols (Dentin / Enamel)" },
+        { tr: "Uzun dönem başarıda polisaj ve cilanın yeri", en: "Finishing & polishing for long-term clinical success" }
+      ],
+      image: "assets/handson_ahmet_sirin.jpg",
+      programImage: "assets/handson_ahmet_sirin_program.jpg",
+      badge: "Hands-on Eğitim"
+    },
+    {
+      id: "workshop-gbt",
+      title: {
+        tr: "Guided Biofilm Therapy'de Minimal İnvaziv Biyofilm Yönetimi",
+        en: "Minimally Invasive Biofilm Management in Guided Biofilm Therapy"
+      },
+      instructor: "Dr. Dt. Sevdenur Günenç",
+      instructorTitle: {
+        tr: "Periodontoloji Uzmanı & Swiss Dental Academy Trainer",
+        en: "Periodontology Specialist & Swiss Dental Academy Trainer"
+      },
+      partner: "Guided Biofilm Therapy (GBT)",
+      quota: "20 Kişi",
+      date: "5 Aralık 2026",
+      venue: {
+        tr: "Altınbaş Diş Hastanesi",
+        en: "Altinbas Dental Hospital"
+      },
+      theoreticalTime: "14.20 - 15.00 (Teorik Oturum)",
+      handsOnTime: "16.00 - 17.30 (Klinik Uygulama)",
+      curriculum: [
+        { tr: "Guided Biofilm Therapy (GBT) bilimsel konsepti", en: "Guided Biofilm Therapy (GBT) scientific concept" },
+        { tr: "Biyofilm ve oral mikrobiyota dengesi", en: "Biofilm and oral microbiota equilibrium" },
+        { tr: "Minimal invaziv klinik protokol ve hasta konforu", en: "Minimally invasive clinical protocol & patient comfort" },
+        { tr: "Hasta üzerinde klinik uygulama demonstrasyonu", en: "Hands-on application demonstration on patient/model" },
+        { tr: "AIRFLOW®, PERIOFLOW® ve PIEZON® protokolü", en: "AIRFLOW®, PERIOFLOW® and PIEZON® protocols" },
+        { tr: "Klinik ipuçları & komplikasyonlardan kaçınma", en: "Clinical tips & avoiding complications" }
+      ],
+      image: "assets/handson_sevdenur_gunenc.jpg",
+      programImage: "assets/handson_sevdenur_gunenc_program.jpg",
+      badge: "Hands-on Eğitim"
+    }
+  ],
+
+  // Sektörel Destekçiler ve Sponsorlar (Resmi PDF Verisi & Orijinal Marka Logoları)
+  sponsors: [
+    {
+      name: "Brilliant",
+      subtitle: "Coltène",
+      category: {
+        tr: "Kompozit & Restoratif Sistemler",
+        en: "Composite & Restorative Systems"
+      },
+      logo: "assets/sponsors/coltene.svg",
+      website: "https://coltene.dental"
+    },
+    {
+      name: "Saremco",
+      subtitle: "Dental AG",
+      category: {
+        tr: "Dental Biyouyumlu Sistemler",
+        en: "Biocompatible Dental Systems"
+      },
+      logo: "assets/sponsors/saremco.svg",
+      website: "https://saremco.ch"
+    },
+    {
+      name: "iTero – Align",
+      subtitle: "Align Technology",
+      category: {
+        tr: "İntraoral Tarama & Şeffaf Plak",
+        en: "Intraoral Scanning & Clear Aligners"
+      },
+      logo: "assets/sponsors/itero.png",
+      website: "https://itero.com"
+    },
+    {
+      name: "Topçu Dental",
+      subtitle: "Dental Dağıtım",
+      category: {
+        tr: "Dental Ekipman & Cihazlar",
+        en: "Dental Equipment & Technology"
+      },
+      logo: "assets/sponsors/topcu_dental.png",
+      website: "https://topcudental.com"
+    },
+    {
+      name: "EMS",
+      subtitle: "Electro Medical Systems",
+      category: {
+        tr: "Guided Biofilm Therapy & Profilaksi",
+        en: "Guided Biofilm Therapy & Prophylaxis"
+      },
+      logo: "assets/sponsors/ems.png",
+      website: "https://ems-dental.com"
+    }
+  ],
+
+  // Resmi Afişler Galerisi
+  posters: [
+    {
+      id: "main",
+      title: {
+        tr: "DENTISTRY 5.0 Ana Sempozyum Afişi",
+        en: "DENTISTRY 5.0 Main Symposium Poster"
+      },
+      subtitle: {
+        tr: "5 Aralık 2026 | Bakırköy Yerleşkesi | Tüm Konuşmacılar",
+        en: "Dec 5, 2026 | Bakirkoy Campus | All Keynotes"
+      },
+      src: "assets/poster_main.jpg"
+    },
+    {
+      id: "sirin-main",
+      title: {
+        tr: "Hands-on Afişi: Dr. Öğr. Üyesi Ahmet Fehmi Şirin",
+        en: "Hands-on Poster: Asst. Prof. Ahmet Fehmi Sirin"
+      },
+      subtitle: {
+        tr: "Anterior Bölgede Kırık Dişlerin Estetik Kapatımı (20 Kişi)",
+        en: "Aesthetic Restoration of Fractured Anterior Teeth (20 Seats)"
+      },
+      src: "assets/handson_ahmet_sirin.jpg"
+    },
+    {
+      id: "sirin-prog",
+      title: {
+        tr: "Anterior Restorasyon Program Detayı",
+        en: "Anterior Restoration Detailed Program"
+      },
+      subtitle: {
+        tr: "14.20 - 15.00 Teorik | 16.00 - 17.30 Hands-on",
+        en: "14.20 - 15.00 Theory | 16.00 - 17.30 Hands-on"
+      },
+      src: "assets/handson_ahmet_sirin_program.jpg"
+    },
+    {
+      id: "gunenc-main",
+      title: {
+        tr: "Hands-on Afişi: Dr. Dt. Sevdenur Günenç (GBT)",
+        en: "Hands-on Poster: Sevdenur Gunenc (GBT)"
+      },
+      subtitle: {
+        tr: "Guided Biofilm Therapy'de Minimal İnvaziv Biyofilm Yönetimi",
+        en: "Minimally Invasive Biofilm Management in GBT (20 Seats)"
+      },
+      src: "assets/handson_sevdenur_gunenc.jpg"
+    },
+    {
+      id: "gunenc-prog",
+      title: {
+        tr: "Guided Biofilm Therapy Program Detayı",
+        en: "Guided Biofilm Therapy Detailed Program"
+      },
+      subtitle: {
+        tr: "14.20 - 15.00 Teorik | 16.00 - 17.30 Hands-on",
+        en: "14.20 - 15.00 Theory | 16.00 - 17.30 Hands-on"
+      },
+      src: "assets/handson_sevdenur_gunenc_program.jpg"
+    }
+  ],
+
+  // Bilimsel Program Akışı
   schedule: {
     day1: [
       {
-        time: "09:15 - 09:50",
+        time: "09:00 - 09:45",
         type: "registration",
         title: {
           tr: "Kayıt, Yaka Kartı Dağıtımı & Karşılama Kahvesi",
@@ -267,7 +489,7 @@ const symposiumData = {
         icon: "coffee"
       },
       {
-        time: "09:50 - 10:00",
+        time: "09:45 - 10:00",
         type: "opening",
         title: {
           tr: "Açılış Konuşmaları & Sempozyum Takdimi",
@@ -282,31 +504,7 @@ const symposiumData = {
         icon: "mic"
       },
       {
-        time: "10:00 - 10:40",
-        type: "keynote",
-        title: {
-          tr: "Dijital Diş Hekimliğinde CAD/CAM İş Akışı ve Yapay Zeka Entegrasyonu",
-          en: "CAD/CAM Workflow and Artificial Intelligence Integration in Digital Dentistry"
-        },
-        speaker: { tr: "Ahmet Serdar Mutluer", en: "Ahmet Serdar Mutluer" },
-        hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
-        badge: { tr: "Konuşma 1", en: "Keynote 1" },
-        icon: "cpu"
-      },
-      {
-        time: "10:40 - 11:00",
-        type: "break",
-        title: {
-          tr: "Kahve Molası & Stant Alanı Ziyareti",
-          en: "Coffee Break & Exhibition Area Visit"
-        },
-        speaker: { tr: "İkram & Network", en: "Refreshments & Networking" },
-        hall: { tr: "Zemin Kat Fuaye & Sponsor Stantları", en: "Ground Floor Foyer & Sponsor Booths" },
-        badge: { tr: "Mola", en: "Break" },
-        icon: "coffee"
-      },
-      {
-        time: "11:00 - 11:40",
+        time: "10:00 - 10:45",
         type: "keynote",
         title: {
           tr: "Dijitalden Bireysele: Protetik Restorasyonlarda Biyomimetik ve Estetik Yaklaşımlar",
@@ -314,23 +512,23 @@ const symposiumData = {
         },
         speaker: { tr: "Prof. Dr. Selim Pamuk", en: "Prof. Dr. Selim Pamuk" },
         hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
-        badge: { tr: "Konuşma 2", en: "Keynote 2" },
+        badge: { tr: "Konuşma 1", en: "Keynote 1" },
         icon: "sparkles"
       },
       {
-        time: "11:40 - 12:00",
+        time: "10:45 - 11:00",
         type: "break",
         title: {
-          tr: "Kahve Molası & E-Poster Sunum Alanı",
-          en: "Coffee Break & E-Poster Exhibition"
+          tr: "Kahve Molası & Sponsor Stant Alanı Ziyareti",
+          en: "Coffee Break & Sponsor Exhibition Visit"
         },
-        speaker: { tr: "İkram & Bilimsel Tartışma", en: "Coffee & Scientific Networking" },
-        hall: { tr: "Zemin Kat Fuaye Alanı", en: "Ground Floor Foyer" },
+        speaker: { tr: "İkram & Network", en: "Refreshments & Networking" },
+        hall: { tr: "Zemin Kat Fuaye & Sponsor Stantları", en: "Ground Floor Foyer & Booths" },
         badge: { tr: "Mola", en: "Break" },
         icon: "coffee"
       },
       {
-        time: "12:00 - 12:40",
+        time: "11:00 - 11:45",
         type: "keynote",
         title: {
           tr: "Modern Ortodontide Şeffaf Plak Biyomekaniği ve 3D Tedavi Planlama",
@@ -338,62 +536,86 @@ const symposiumData = {
         },
         speaker: { tr: "Prof. Dr. Korkmaz Sayınsu", en: "Prof. Dr. Korkmaz Sayınsu" },
         hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
-        badge: { tr: "Konuşma 3", en: "Keynote 3" },
+        badge: { tr: "Konuşma 2", en: "Keynote 2" },
         icon: "smile"
       },
       {
-        time: "12:40 - 13:40",
-        type: "lunch",
-        title: {
-          tr: "Öğle Yemeği Arası & Sponsor Stantları İnteraktif Alanı",
-          en: "Lunch Break & Interactive Sponsor Exhibition"
-        },
-        speaker: { tr: "Tüm Katılımcılar İçin Yemek İkramı", en: "Catered Lunch for All Attendees" },
-        hall: { tr: "Kampüs Sosyal Tesisler & Fuaye", en: "Campus Social Center & Foyer" },
-        badge: { tr: "Öğle Yemeği", en: "Lunch" },
-        icon: "utensils"
-      },
-      {
-        time: "13:40 - 14:20",
-        type: "keynote",
-        title: {
-          tr: "Minimal İnvaziv Estetik Yaklaşımlar ve Dijital Gülüş Tasarımı (DSD)",
-          en: "Minimally Invasive Aesthetic Approaches and Digital Smile Design (DSD)"
-        },
-        speaker: { tr: "Dr. Dt. Sevgin Şen", en: "Dr. Dt. Sevgin Sen" },
-        hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
-        badge: { tr: "Konuşma 4", en: "Keynote 4" },
-        icon: "gem"
-      },
-      {
-        time: "14:20 - 14:40",
+        time: "11:45 - 12:00",
         type: "break",
         title: {
           tr: "Kahve & Çay Molası",
           en: "Coffee & Tea Break"
         },
-        speaker: { tr: "Kısa Dinlenme & Soru-Cevap", en: "Networking & Q&A" },
+        speaker: { tr: "İkram & Bilimsel Sohbet", en: "Networking" },
         hall: { tr: "Zemin Kat Fuaye Alanı", en: "Ground Floor Foyer" },
         badge: { tr: "Mola", en: "Break" },
         icon: "coffee"
       },
       {
-        time: "14:40 - 15:20",
+        time: "12:00 - 12:45",
         type: "keynote",
         title: {
-          tr: "Cerrahi ve Protetik Açıdan İmplantolojide Güncel Trendler ve Kemik Rejenerasyonu",
-          en: "Current Trends in Surgical and Prosthetic Implantology & Bone Regeneration"
+          tr: "Çene Cerrahisinde İleri Ogmentasyon ve Biyolojik İmplant Protokolleri",
+          en: "Advanced Augmentation & Biological Implant Protocols in Maxillofacial Surgery"
         },
-        speaker: { tr: "Prof. Dr. Nuray Altıntaş & Prof. Dr. Subutay Altıntaş", en: "Prof. Dr. Nuray Altintas & Prof. Dr. Subutay Altintas" },
+        speaker: { tr: "Prof. Dr. Nuray Yılmaz Altıntaş", en: "Prof. Dr. Nuray Yilmaz Altintas" },
         hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
-        badge: { tr: "Ortak Panel", en: "Joint Panel" },
+        badge: { tr: "Konuşma 3", en: "Keynote 3" },
         icon: "activity"
       },
       {
-        time: "15:20 - 16:00",
+        time: "12:45 - 13:30",
+        type: "lunch",
+        title: {
+          tr: "Öğle Yemeği Arası & Sponsor Stantları İnteraktif Alanı",
+          en: "Lunch Break & Interactive Sponsor Area"
+        },
+        speaker: { tr: "Tüm Katılımcılar İçin Yemek İkramı", en: "Catered Lunch for Attendees" },
+        hall: { tr: "Kampüs Sosyal Tesisler & Fuaye", en: "Campus Social Center & Foyer" },
+        badge: { tr: "Öğle Yemeği", en: "Lunch" },
+        icon: "utensils"
+      },
+      {
+        time: "13:30 - 14:15",
+        type: "keynote",
+        title: {
+          tr: "Kişiselleştirilmiş Protetik Planlama ve Biyomalzeme Dinamikleri",
+          en: "Personalized Prosthetic Planning and Biomaterial Dynamics"
+        },
+        speaker: { tr: "Prof. Dr. Subutay Han Altıntaş", en: "Prof. Dr. Subutay Han Altintas" },
+        hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
+        badge: { tr: "Konuşma 4", en: "Keynote 4" },
+        icon: "layers"
+      },
+      {
+        time: "14:15 - 14:30",
+        type: "break",
+        title: {
+          tr: "Kahve Molası & Hands-on Salonlarına Geçiş",
+          en: "Coffee Break & Transition to Workshop Rooms"
+        },
+        speaker: { tr: "Kısa Ara", en: "Short Break" },
+        hall: { tr: "Fuaye Alanı", en: "Foyer Area" },
+        badge: { tr: "Mola", en: "Break" },
+        icon: "coffee"
+      },
+      {
+        time: "14:30 - 15:15",
+        type: "keynote",
+        title: {
+          tr: "Diş Hekimliğinde Yapay Zeka, Makine Öğrenimi ve Akıllı Dijital Entegrasyon",
+          en: "AI, Machine Learning and Smart Digital Integration in Dentistry"
+        },
+        speaker: { tr: "Dr. Mehmet Ferit Erel", en: "Dr. Mehmet Ferit Erel" },
+        hall: { tr: "Büyük Oditoryum", en: "Grand Auditorium" },
+        badge: { tr: "Konuşma 5", en: "Keynote 5" },
+        icon: "cpu"
+      },
+      {
+        time: "15:15 - 16:00",
         type: "closing",
         title: {
-          tr: "Sempozyum Kapanışı, Plaket Takdimi & Toplu Fotoğraf Çekimi",
+          tr: "Sempozyum Kapanışı, Teşekkür Plaketi Takdimi & Toplu Fotoğraf Çekimi",
           en: "Closing Ceremony, Awards & Group Photo"
         },
         speaker: { tr: "AUDSA Yönetim Kurulu & Değerli Konuşmacılarımız", en: "AUDSA Board & Keynote Faculty" },
@@ -402,66 +624,67 @@ const symposiumData = {
         icon: "award"
       }
     ],
+
     day2: [
       {
-        time: "09:30 - 12:00",
+        time: "14:20 - 15:00",
         type: "workshop",
         title: {
-          tr: "Workshop A: İntraoral Tarama ve Dijital Restorasyon Tasarımı (Hands-on CAD/CAM)",
-          en: "Workshop A: Intraoral Scanning & Digital Restoration Design (Hands-on CAD/CAM)"
+          tr: "Teorik Oturum: Anterior Bölgede Kırık Dişlerin Estetik Kapatımı",
+          en: "Theoretical Session: Aesthetic Restoration of Fractured Anterior Teeth"
         },
-        speaker: { tr: "Ahmet Serdar Mutluer & Klinik Eğitmenler", en: "Ahmet Serdar Mutluer & Clinical Instructors" },
-        hall: { tr: "Dijital Simülasyon Laboratuvarı - Kat 2", en: "Digital Simulation Lab - 2nd Floor" },
-        badge: { tr: "Atölye (Hands-on)", en: "Hands-on Workshop" },
-        icon: "laptop"
+        speaker: { tr: "Dr. Öğr. Üyesi Ahmet Fehmi Şirin", en: "Dr. Öğr. Üyesi Ahmet Fehmi Sirin" },
+        hall: { tr: "Altınbaş Diş Hastanesi - Seminer Salonu", en: "Altinbas Dental Hospital - Seminar Room" },
+        badge: { tr: "Teorik Oturum", en: "Theoretical" },
+        icon: "book-open"
       },
       {
-        time: "10:00 - 12:30",
+        time: "14:20 - 15:00",
         type: "workshop",
         title: {
-          tr: "Workshop B: Anterior Direkt Kompozit Tabakalama ve Polisaj Protokolleri",
-          en: "Workshop B: Anterior Direct Composite Stratification & Polishing Protocols"
+          tr: "Teorik Oturum: Guided Biofilm Therapy'de Minimal İnvaziv Biyofilm Yönetimi",
+          en: "Theoretical Session: Minimally Invasive Biofilm Management in GBT"
         },
-        speaker: { tr: "Dr. Dt. Sevgin Şen", en: "Dr. Dt. Sevgin Sen" },
-        hall: { tr: "Fantom Laboratuvarı 1", en: "Phantom Lab 1" },
-        badge: { tr: "Atölye (Hands-on)", en: "Hands-on Workshop" },
-        icon: "layers"
-      },
-      {
-        time: "12:30 - 13:30",
-        type: "lunch",
-        title: {
-          tr: "Workshop Katılımcıları Öğle Yemeği & Değerlendirme",
-          en: "Workshop Attendees Lunch & Discussion"
-        },
-        speaker: { tr: "Tüm Workshop Grupları", en: "All Workshop Groups" },
-        hall: { tr: "Fakülte Lounge & Bahçe", en: "Faculty Lounge & Garden" },
-        badge: { tr: "Yemek", en: "Lunch" },
-        icon: "utensils"
-      },
-      {
-        time: "13:30 - 16:00",
-        type: "workshop",
-        title: {
-          tr: "Workshop C: Şeffaf Plak Ataşman Yerleşimi, İPR ve Tedavi İzleme Simülasyonu",
-          en: "Workshop C: Clear Aligner Attachment Placement, IPR & Monitoring Simulation"
-        },
-        speaker: { tr: "Prof. Dr. Korkmaz Sayınsu", en: "Prof. Dr. Korkmaz Sayınsu" },
-        hall: { tr: "Ortodonti Seminer Salonu", en: "Orthodontics Seminar Hall" },
-        badge: { tr: "Atölye (Hands-on)", en: "Hands-on Workshop" },
-        icon: "smile"
-      },
-      {
-        time: "13:30 - 16:30",
-        type: "workshop",
-        title: {
-          tr: "Workshop D: Cerrahi Rehberli İmplant Cerrahisi & İleri Dikiş/Flep Teknikleri",
-          en: "Workshop D: Guided Implant Surgery & Advanced Flap / Suture Techniques"
-        },
-        speaker: { tr: "Cerrahi & İmplantoloji Eğitim Ekibi", en: "Surgical & Implantology Faculty Team" },
-        hall: { tr: "Cerrahi Uygulama Ünitesi", en: "Surgical Practice Suite" },
-        badge: { tr: "Atölye (Hands-on)", en: "Hands-on Workshop" },
+        speaker: { tr: "Dr. Dt. Sevdenur Günenç", en: "Dr. Dt. Sevdenur Gunenc" },
+        hall: { tr: "Altınbaş Diş Hastanesi - GBT Amfisi", en: "Altinbas Dental Hospital - GBT Hall" },
+        badge: { tr: "Teorik Oturum", en: "Theoretical" },
         icon: "shield-check"
+      },
+      {
+        time: "15:00 - 16:00",
+        type: "break",
+        title: {
+          tr: "Klinik Hazırlık, Kahve Molası & Katılımcı Karşılama",
+          en: "Clinical Preparation & Coffee Break"
+        },
+        speaker: { tr: "Atölye Asistanları & Eğitmenler", en: "Workshop Assistants & Instructors" },
+        hall: { tr: "Diş Hastanesi Fuaye", en: "Dental Hospital Foyer" },
+        badge: { tr: "Mola / Hazırlık", en: "Break" },
+        icon: "coffee"
+      },
+      {
+        time: "16:00 - 17:30",
+        type: "workshop",
+        title: {
+          tr: "Klinik Uygulama (Hands-on): Anterior Bölgede Kırık Dişlerin Estetik Kapatımı",
+          en: "Clinical Practice (Hands-on): Aesthetic Restoration of Fractured Anterior Teeth"
+        },
+        speaker: { tr: "Dr. Öğr. Üyesi Ahmet Fehmi Şirin (Kontenjan: 20 Kişi)", en: "Dr. Öğr. Üyesi Ahmet Fehmi Sirin (Max 20 Seats)" },
+        hall: { tr: "Altınbaş Diş Hastanesi - Fantom & Klinik Ünitesi", en: "Altinbas Dental Hospital - Phantom & Clinic Suite" },
+        badge: { tr: "Hands-on (20 Kişi)", en: "Hands-on (20 Seats)" },
+        icon: "sparkles"
+      },
+      {
+        time: "16:00 - 17:30",
+        type: "workshop",
+        title: {
+          tr: "Klinik Uygulama (Hands-on): GBT ile Minimal İnvaziv Biyofilm Protokolü (AIRFLOW® & PIEZON®)",
+          en: "Clinical Practice (Hands-on): GBT Minimally Invasive Biofilm Protocol"
+        },
+        speaker: { tr: "Dr. Dt. Sevdenur Günenç (Kontenjan: 20 Kişi)", en: "Dr. Dt. Sevdenur Gunenc (Max 20 Seats)" },
+        hall: { tr: "Altınbaş Diş Hastanesi - Periodontoloji Kliniği", en: "Altinbas Dental Hospital - Periodontology Clinic" },
+        badge: { tr: "Hands-on (20 Kişi)", en: "Hands-on (20 Seats)" },
+        icon: "activity"
       }
     ]
   },
@@ -469,12 +692,32 @@ const symposiumData = {
   faqs: [
     {
       q: {
+        tr: "Sempozyum ne zaman ve nerede düzenleniyor?",
+        en: "When and where is the symposium taking place?"
+      },
+      a: {
+        tr: "Sempozyumumuz 5 Aralık 2026 tarihinde Altınbaş Üniversitesi Bakırköy Yerleşkesi (Büyük Oditoryum) ve Altınbaş Diş Hastanesi bünyesinde gerçekleştirilecektir.",
+        en: "The symposium takes place on December 5, 2026 at Altinbas University Bakirkoy Campus (Grand Auditorium) and Altinbas Dental Hospital."
+      }
+    },
+    {
+      q: {
         tr: "Sempozyuma nasıl kayıt olabilirim?",
         en: "How can I register for the symposium?"
       },
       a: {
-        tr: "Sempozyum kayıtları resmi Google Başvuru Formumuz üzerinden alınmaktadır. Sitemizde yer alan 'Kayıt Ol (Google Form)' butonlarına tıklayarak formu doldurabilir, kontenjan durumuna göre onay e-postanızı alabilirsiniz.",
-        en: "Registrations are collected via our official Google Application Form. Click on the 'Register (Google Form)' buttons on the site to fill out the form and secure your seat."
+        tr: "Sempozyum ve Hands-on kayıtları resmi başvuru formumuz üzerinden alınmaktadır. Sitemizdeki 'Kayıt Ol' veya 'Kayıt Formu' butonlarına tıklayarak veya https://forms.gle/BFu1sdK98rwNL6zg8 adresinden formunuzu iletebilirsiniz.",
+        en: "Registrations are collected via our official application form. Click on the 'Register' or 'Registration Form' buttons or visit https://forms.gle/BFu1sdK98rwNL6zg8."
+      }
+    },
+    {
+      q: {
+        tr: "Hands-on Workshop kontenjanları kaç kişiliktir?",
+        en: "What is the capacity for Hands-on Workshops?"
+      },
+      a: {
+        tr: "Birebir klinik uygulama kalitesini en üst düzeyde tutmak amacıyla hem Dr. Öğr. Üyesi Ahmet Fehmi Şirin hem de Dr. Dt. Sevdenur Günenç'in Hands-on atölyeleri 20'şer kişilik kesin kontenjanla sınırlandırılmıştır.",
+        en: "To guarantee premium hands-on learning, both workshops (Ahmet Fehmi Sirin & Sevdenur Gunenc) are strictly capped at 20 participants each."
       }
     },
     {
@@ -484,27 +727,17 @@ const symposiumData = {
       },
       a: {
         tr: "Sempozyumumuz Altınbaş Üniversitesi Diş Hekimliği Fakültesi öğrencileri başta olmak üzere tüm üniversitelerin diş hekimliği öğrencilerine, stajyer hekimlere, asistanlara, akademisyenlere ve serbest çalışan diş hekimlerine açıktır.",
-        en: "The symposium is open to dental students, intern dentists, residents, academicians, and dental practitioners from Altinbas University and all dental faculties nationwide and internationally."
+        en: "The symposium is open to dental students, intern dentists, residents, academicians, and dental practitioners from Altinbas University and all dental faculties nationwide."
       }
     },
     {
       q: {
-        tr: "Katılım sertifikası verilecek mi ve sertifikalar akredite midir?",
-        en: "Will attendance certificates be provided and are they accredited?"
+        tr: "Katılım sertifikası verilecek mi?",
+        en: "Will attendance certificates be provided?"
       },
       a: {
-        tr: "Evet. Tüm katılımcılara Altınbaş Üniversitesi Diş Hekimliği Fakültesi ve AUDSA onaylı, doğrulanabilir Katılım Sertifikası verilecektir. Diş hekimleri için Sürekli Diş Hekimliği Eğitimi (SDE) puanı geçerliliği bulunmaktadır.",
-        en: "Yes. All attendees will receive an official, verifiable Certificate of Attendance approved by Altinbas University Faculty of Dentistry and AUDSA. CPD credits apply for dental practitioners."
-      }
-    },
-    {
-      q: {
-        tr: "Hands-on Workshop oturumlarına katılım nasıl planlanıyor?",
-        en: "How is participation in Hands-on Workshops organized?"
-      },
-      a: {
-        tr: "Hands-on atölyeler birebir uygulama imkânı sunabilmek adına sınırlı kontenjanla (maksimum 20-25 kişi) düzenlenmektedir. Kayıt Google Formu içerisinde ilgilendiğiniz atölye tercihini belirterek ön kayıt oluşturabilirsiniz.",
-        en: "Hands-on workshops have strictly limited capacity (max 20-25 seats each) for personalized practice. You can specify your preferred workshop directly within the Google Registration Form."
+        tr: "Evet. Tüm katılımcılara Altınbaş Üniversitesi Diş Hekimliği Fakültesi ve AUDSA onaylı, doğrulanabilir Katılım Sertifikası verilecektir.",
+        en: "Yes. All attendees will receive an official verifiable Certificate of Attendance approved by Altinbas University Faculty of Dentistry and AUDSA."
       }
     },
     {
@@ -513,8 +746,8 @@ const symposiumData = {
         en: "How can I reach the venue?"
       },
       a: {
-        tr: "Etkinliğimiz Altınbaş Üniversitesi Bakırköy Sağlık Kampüsü'nde gerçekleştirilecektir. M1A Yenikapı-Atatürk Havalimanı Metrosu Bakırköy/İncirli istasyonuna ve Metrobüs İncirli durağına sadece 4-5 dakika yürüme mesafesindedir. Ayrıca Marmaray Bakırköy istasyonundan minibüs veya otobüsle 8 dakikada ulaşılabilir.",
-        en: "The event is held at Altinbas University Bakirkoy Health Campus. It is a 4-5 minute walk from the M1A Metro Bakirkoy/Incirli station and Metrobus Incirli stop. It can also be reached in 8 minutes from Marmaray Bakirkoy station by bus or taxi."
+        tr: "Etkinliğimiz Altınbaş Üniversitesi Bakırköy Yerleşkesi'nde gerçekleştirilecektir. M1A/M3 Metrosu İncirli İstasyonu ve Metrobüs İncirli durağına sadece 4-5 dakika yürüme mesafesindedir. Ayrıca Marmaray Bakırköy istasyonundan minibüs veya otobüsle 8 dakikada ulaşılabilir.",
+        en: "The event is held at Altinbas University Bakirkoy Campus. It is a 4-5 minute walk from M1A/M3 Metro Incirli station and Metrobus Incirli stop."
       }
     },
     {
@@ -524,7 +757,7 @@ const symposiumData = {
       },
       a: {
         tr: "Sponsorluk ve stant talepleriniz için AUDSA Kulüp Başkanları İlknur Bozdağ (0532 175 01 60) ve Hatice Pamukcuoğlu (0546 736 29 37) veya audsaorg@gmail.com adresi üzerinden doğrudan irtibat kurabilirsiniz.",
-        en: "For sponsorship inquiries and booth reservations, please contact AUDSA Club Presidents Ilknur Bozdag (+90 532 175 01 60) and Hatice Pamukcuoglu (+90 546 736 29 37) or email audsaorg@gmail.com directly."
+        en: "For sponsorship inquiries, contact AUDSA Club Presidents Ilknur Bozdag (+90 532 175 01 60) and Hatice Pamukcuoglu (+90 546 736 29 37) or email audsaorg@gmail.com."
       }
     }
   ],
@@ -534,27 +767,24 @@ const symposiumData = {
       name: "İlknur Bozdağ",
       role: { tr: "AUDSA Kulüp Başkanı", en: "AUDSA Club President" },
       phone: "0532 175 01 60",
-      email: "ilknurbozdag16@gmail.com",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+      email: "ilknurbozdag16@gmail.com"
     },
     {
       name: "Hatice Pamukcuoglu",
       role: { tr: "AUDSA Kulüp Başkanı", en: "AUDSA Club President" },
       phone: "0546 736 29 37",
-      email: "haticepamukcuogluu1@gmail.com",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+      email: "haticepamukcuogluu1@gmail.com"
     },
     {
       name: "Sarkis Kartun",
       role: { tr: "AUDSA Kulüp Başkan Yardımcısı", en: "AUDSA Vice President" },
       phone: "0535 554 46 89",
-      email: "sarkis.kartun@audsa.org",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+      email: "sarkis.kartun@audsa.org"
     }
   ],
 
   social: {
-    instagramClub: "https://instagram.com/audsaorg",
+    instagramClub: "https://instagram.com/audsorg",
     instagramFaculty: "https://instagram.com/altinbas.facultyofdentistry",
     websiteFaculty: "https://altinbas.edu.tr/fakulteler/dis-hekimligi-fakultesi",
     websiteUniversity: "https://altinbas.edu.tr",

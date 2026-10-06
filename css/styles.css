@@ -1,19 +1,26 @@
-/* Custom CSS Styles & Polish for Altınbaş University AUDSA Dentistry 5.0 */
+/* Custom CSS Styles & Polish for Altınbaş University AUDSA Dentistry 5.0 
+   Color Theme: Lacivert • Kırmızı • Beyaz (Navy • Red • White)
+*/
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --primary-navy: #0F172A;
-  --royal-blue: #1E3A8A;
-  --accent-cyan: #06B6D4;
-  --accent-teal: #0D9488;
+  --primary-navy: #0A142F;
+  --dark-navy: #060B1E;
+  --secondary-navy: #13224B;
+  --altinbas-red: #E30613;
+  --altinbas-red-hover: #C50510;
+  --altinbas-red-dark: #A0040D;
+  --altinbas-red-light: #FEE2E2;
+  --pure-white: #FFFFFF;
   --soft-bg: #F8FAFC;
+  --gold-accent: #F59E0B;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #F8FAFC;
-  color: #1E293B;
+  color: #0F172A;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -27,65 +34,77 @@ body {
   background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #94A3B8;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748B;
+  background: #E30613;
 }
 
 /* Glassmorphism Styles */
 .glass-header {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(241, 245, 249, 1);
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(10, 20, 47, 0.04), 0 8px 10px -6px rgba(10, 20, 47, 0.02);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.08), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 20px 30px -10px rgba(10, 20, 47, 0.1), 0 10px 15px -3px rgba(227, 6, 19, 0.05);
+  border-color: rgba(227, 6, 19, 0.3);
 }
 
-.glass-card-dark {
-  background: rgba(15, 23, 42, 0.92);
+.glass-card-navy {
+  background: rgba(10, 20, 47, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4);
 }
 
-/* Subtle Medical Background Mesh Grid */
+/* Authentic Poster Background (Navy with Red Accent Flare & Technical Grid) */
+.bg-poster-navy {
+  background-color: #081129;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(227, 6, 19, 0.35) 0%, transparent 45%),
+    radial-gradient(circle at 10% 80%, rgba(19, 34, 75, 0.8) 0%, transparent 50%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+}
+
+/* Light Section Mesh Grid */
 .bg-mesh-grid {
   background-color: #F8FAFC;
   background-image: 
-    radial-gradient(at 10% 20%, rgba(30, 58, 138, 0.04) 0px, transparent 50%),
-    radial-gradient(at 90% 10%, rgba(13, 148, 136, 0.06) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(6, 182, 212, 0.04) 0px, transparent 50%),
+    radial-gradient(at 10% 20%, rgba(10, 20, 47, 0.03) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(227, 6, 19, 0.04) 0px, transparent 50%),
     linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
 }
 
-/* Modern Gradient Glows */
-.hero-glow-1 {
-  background: radial-gradient(circle, rgba(13, 148, 136, 0.25) 0%, rgba(30, 58, 138, 0) 70%);
+/* Red Glows and Accents */
+.hero-glow-red {
+  background: radial-gradient(circle, rgba(227, 6, 19, 0.28) 0%, rgba(227, 6, 19, 0) 70%);
 }
-.hero-glow-2 {
-  background: radial-gradient(circle, rgba(30, 58, 138, 0.2) 0%, rgba(6, 182, 212, 0) 70%);
+.hero-glow-navy {
+  background: radial-gradient(circle, rgba(19, 34, 75, 0.7) 0%, rgba(10, 20, 47, 0) 70%);
 }
 
 /* Tooth Logo SVG Glow */
 .tooth-glow {
-  filter: drop-shadow(0 0 12px rgba(20, 184, 166, 0.35));
+  filter: drop-shadow(0 0 10px rgba(227, 6, 19, 0.4));
 }
 
 /* Timeline Components */
@@ -95,7 +114,7 @@ body {
   bottom: 0;
   left: 28px;
   width: 2px;
-  background: linear-gradient(to bottom, #CBD5E1, #0D9488, #CBD5E1);
+  background: linear-gradient(to bottom, #CBD5E1, #E30613, #0A142F, #CBD5E1);
 }
 
 @media (min-width: 768px) {
@@ -111,8 +130,8 @@ body {
     transform: scale(1);
   }
   50% {
-    opacity: 0.85;
-    transform: scale(1.03);
+    opacity: 0.9;
+    transform: scale(1.02);
   }
 }
 .animate-pulse-subtle {
@@ -139,9 +158,14 @@ body {
 
 /* Modal Blur Backdrop */
 .modal-overlay {
-  background-color: rgba(15, 23, 42, 0.65);
+  background-color: rgba(6, 11, 30, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* Poster Card Dynamic Diagonal Red Slice Effect (Like in the uploaded posters) */
+.poster-red-stripe {
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 /* Print Optimization */

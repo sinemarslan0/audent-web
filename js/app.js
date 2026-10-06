@@ -1,7 +1,8 @@
 /**
  * Altınbaş University Faculty of Dentistry - AUDSA
  * DENTISTRY 5.0: DİJİTALDEN BİREYSELE
- * Core Application Engine (Showcase & Information Portal)
+ * Core Application Engine
+ * Color Scheme: Lacivert • Kırmızı • Beyaz
  */
 
 // Application State
@@ -10,7 +11,8 @@ const AppState = {
   activeScheduleDay: 'day1',
   activeScheduleFilter: 'all',
   activeSpeakerFilter: 'all',
-  selectedSpeaker: null
+  selectedSpeaker: null,
+  activePosterIndex: 0
 };
 
 // Document Ready
@@ -26,7 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initial dynamic renders
   renderSpeakers();
+  renderWorkshops();
+  renderPostersShowcase();
   renderSchedule();
+  renderSponsors();
   renderFaqs();
   renderOrganizers();
   
@@ -51,7 +56,7 @@ function refreshLucide() {
 
 // Bind registration Google Form URLs
 function initGoogleFormLinks() {
-  const formUrl = symposiumData.event.registrationFormUrl || "https://forms.gle/AUDSA-Dentistry5-Kayit";
+  const formUrl = symposiumData.event.registrationFormUrl || "https://forms.gle/BFu1sdK98rwNL6zg8";
   const formLinks = document.querySelectorAll('.google-form-link');
   formLinks.forEach(link => {
     link.href = formUrl;
@@ -131,7 +136,10 @@ function applyLanguage(lang, animate = true) {
 
   // Re-render dynamic components
   renderSpeakers();
+  renderWorkshops();
+  renderPostersShowcase();
   renderSchedule();
+  renderSponsors();
   renderFaqs();
   renderOrganizers();
 
@@ -139,7 +147,7 @@ function applyLanguage(lang, animate = true) {
 }
 
 /* ==========================================================================
-   2. Live Countdown Timer
+   2. Live Countdown Timer (Target: 5 Aralık 2026)
    ========================================================================== */
 
 function initCountdown() {
@@ -192,65 +200,62 @@ function renderSpeakers() {
 
   let list = symposiumData.speakers;
   if (filter === 'day1') {
-    list = list.filter(s => s.day === 1);
+    list = list.filter(s => s.category === 'keynote');
   } else if (filter === 'day2') {
-    list = list.filter(s => s.day === 2);
+    list = list.filter(s => s.category === 'workshop');
   }
 
   container.innerHTML = list.map(speaker => {
     return `
-      <div class="glass-card rounded-2xl overflow-hidden group border border-slate-200/70 hover:border-teal-500/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+      <div class="glass-card rounded-2xl overflow-hidden group border border-slate-200/90 hover:border-[#E30613]/50 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
         <div>
           <!-- Image & Badges -->
-          <div class="relative overflow-hidden aspect-[4/3] bg-slate-100">
+          <div class="relative overflow-hidden aspect-[4/3] bg-slate-900">
             <img 
               src="${speaker.image}" 
               alt="${speaker.name}" 
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A142F]/90 via-transparent to-transparent"></div>
             
             <!-- Specialty Badge -->
-            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-teal-800 text-xs font-semibold px-2.5 py-1 rounded-full border border-teal-100 shadow-sm flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            <div class="absolute top-3 left-3 bg-[#0A142F]/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full border border-white/20 shadow-sm flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#E30613]"></span>
               ${speaker.badge}
             </div>
 
             <!-- Time Badge -->
-            <div class="absolute bottom-3 left-3 text-white text-xs font-medium px-2 py-0.5 rounded-md bg-slate-900/70 backdrop-blur-sm border border-white/20 flex items-center gap-1">
-              <i data-lucide="clock" class="w-3 h-3 text-teal-400"></i>
+            <div class="absolute bottom-3 left-3 text-white text-xs font-semibold px-2.5 py-1 rounded-lg bg-[#0A142F]/85 backdrop-blur-sm border border-white/20 flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-[#E30613]"></i>
               ${speaker.time}
             </div>
 
-            <!-- Socials -->
+            <!-- Socials / Email -->
             <div class="absolute top-3 right-3 flex flex-col gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-              <a href="${speaker.socials.linkedin}" target="_blank" rel="noopener" class="w-7 h-7 rounded-full bg-white/85 hover:bg-teal-600 hover:text-white text-slate-700 flex items-center justify-center transition-colors shadow-sm" title="LinkedIn">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-              <a href="mailto:${speaker.socials.email}" class="w-7 h-7 rounded-full bg-white/85 hover:bg-teal-600 hover:text-white text-slate-700 flex items-center justify-center transition-colors shadow-sm" title="Email">
-                <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <a href="mailto:${speaker.socials.email}" class="w-8 h-8 rounded-full bg-white/90 hover:bg-[#E30613] hover:text-white text-slate-800 flex items-center justify-center transition-colors shadow-sm" title="E-posta">
+                <i data-lucide="mail" class="w-4 h-4"></i>
               </a>
             </div>
           </div>
 
           <!-- Content -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+            <h3 class="text-xl font-extrabold text-[#0A142F] group-hover:text-[#E30613] transition-colors leading-tight">
               ${speaker.name}
             </h3>
-            <p class="text-sm font-medium text-teal-600 mt-0.5 mb-1">
+            <p class="text-xs font-bold text-[#E30613] mt-1 mb-1">
               ${speaker.title[lang]}
             </p>
-            <p class="text-xs text-slate-500 mb-4 flex items-center gap-1">
-              <i data-lucide="building" class="w-3.5 h-3.5 text-slate-400"></i>
-              ${speaker.institution[lang]}
+            <p class="text-xs text-slate-500 mb-4 flex items-center gap-1.5">
+              <i data-lucide="building" class="w-3.5 h-3.5 text-slate-400 flex-shrink-0"></i>
+              <span class="line-clamp-1">${speaker.institution[lang]}</span>
             </p>
 
             <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-100 mb-2">
-              <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
-                <i data-lucide="presentation" class="w-3 h-3 text-teal-600"></i>
-                ${lang === 'tr' ? 'Sunum Başlığı' : 'Keynote Topic'}
+              <div class="text-[11px] font-bold text-[#0A142F] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <i data-lucide="presentation" class="w-3.5 h-3.5 text-[#E30613]"></i>
+                ${lang === 'tr' ? 'Sunum Başlığı' : 'Presentation Topic'}
               </div>
               <p class="text-xs font-semibold text-slate-800 line-clamp-2 leading-relaxed">
                 "${speaker.topic[lang]}"
@@ -264,10 +269,10 @@ function renderSpeakers() {
           <button 
             type="button"
             onclick="openSpeakerModal('${speaker.id}')"
-            class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-teal-50 text-slate-700 hover:text-teal-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-200 border border-slate-200/80 hover:border-teal-200"
+            class="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-red-50 text-slate-800 hover:text-[#E30613] text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 border border-slate-200/80 hover:border-[#E30613]/30"
           >
             <span>${i18nDictionary[lang].speaker_view_bio}</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#E30613]"></i>
           </button>
         </div>
       </div>
@@ -285,9 +290,9 @@ function filterSpeakers(category) {
   buttons.forEach(btn => {
     const filterVal = btn.getAttribute('data-filter');
     if (filterVal === category) {
-      btn.className = 'speaker-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-teal-600 text-white shadow-sm transition-all';
+      btn.className = 'speaker-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-[#E30613] text-white shadow-md shadow-red-600/30 transition-all';
     } else {
-      btn.className = 'speaker-filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all';
+      btn.className = 'speaker-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all';
     }
   });
 
@@ -307,7 +312,7 @@ function openSpeakerModal(speakerId) {
   const modalInst = document.getElementById('speaker-modal-institution');
   const modalBadge = document.getElementById('speaker-modal-badge');
   const modalTopic = document.getElementById('speaker-modal-topic');
-  const modalBio = document.getElementById('speaker-modal-bio');
+  const bioEl = document.getElementById('speaker-modal-bio');
   const modalTime = document.getElementById('speaker-modal-time');
 
   if (modalImg) modalImg.src = speaker.image;
@@ -316,14 +321,233 @@ function openSpeakerModal(speakerId) {
   if (modalInst) modalInst.textContent = speaker.institution[lang];
   if (modalBadge) modalBadge.textContent = speaker.badge;
   if (modalTopic) modalTopic.textContent = speaker.topic[lang];
-  if (modalBio) modalBio.textContent = speaker.bio[lang];
+  if (bioEl) bioEl.textContent = speaker.bio[lang];
   if (modalTime) modalTime.textContent = speaker.time;
 
   openModal('modal-speaker');
 }
 
 /* ==========================================================================
-   4. Scientific Schedule Rendering & Day Tabs
+   4. Dedicated Hands-on Workshops Section Rendering
+   ========================================================================== */
+
+function renderWorkshops() {
+  const container = document.getElementById('workshops-container');
+  if (!container) return;
+
+  const lang = AppState.currentLang;
+  const formUrl = symposiumData.event.registrationFormUrl;
+
+  container.innerHTML = symposiumData.workshops.map(ws => {
+    return `
+      <div class="glass-card rounded-3xl overflow-hidden border border-slate-200/90 hover:border-[#E30613]/40 shadow-xl transition-all duration-300 flex flex-col lg:flex-row group">
+        <!-- Visual & Badges Column -->
+        <div class="lg:w-5/12 relative overflow-hidden bg-[#0A142F] min-h-[300px]">
+          <img 
+            src="${ws.image}" 
+            alt="${ws.instructor}" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0A142F] via-[#0A142F]/40 to-transparent"></div>
+
+          <!-- Red Quota Ribbon -->
+          <div class="absolute top-4 left-4 bg-[#E30613] text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 uppercase tracking-wider">
+            <i data-lucide="users" class="w-3.5 h-3.5"></i>
+            <span>${ws.quota}</span>
+          </div>
+
+          <!-- Bottom Visual Overlay Info -->
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-widest block">${ws.instructorTitle[lang]}</span>
+            <h4 class="text-xl font-black">${ws.instructor}</h4>
+            <div class="flex items-center gap-2 mt-1 text-xs text-slate-300">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#E30613]"></i>
+              <span>${ws.venue[lang]}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content & Program Column -->
+        <div class="lg:w-7/12 p-6 sm:p-8 flex flex-col justify-between bg-white">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#0A142F] text-white">
+                5 Aralık 2026
+              </span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-red-100 text-[#E30613]">
+                ${ws.badge}
+              </span>
+              ${ws.partner ? `<span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-100 text-slate-700">${ws.partner}</span>` : ''}
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-black text-[#0A142F] mb-3 leading-tight">
+              ${ws.title[lang]}
+            </h3>
+
+            <!-- Time Slots -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Teorik Oturum</span>
+                <span class="text-xs sm:text-sm font-extrabold text-[#0A142F] flex items-center gap-1 mt-0.5">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-[#E30613]"></i>
+                  ${ws.theoreticalTime}
+                </span>
+              </div>
+              <div class="p-3 rounded-xl bg-red-50/60 border border-red-200">
+                <span class="text-[10px] font-bold text-[#E30613] uppercase tracking-wider block">Klinik Uygulama (Hands-on)</span>
+                <span class="text-xs sm:text-sm font-extrabold text-[#E30613] flex items-center gap-1 mt-0.5">
+                  <i data-lucide="activity" class="w-3.5 h-3.5 text-[#E30613]"></i>
+                  ${ws.handsOnTime}
+                </span>
+              </div>
+            </div>
+
+            <!-- Curriculum Highlights -->
+            <h5 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">
+              ${lang === 'tr' ? 'Atölye Kapsamı & Kazanımlar' : 'Workshop Curriculum'}
+            </h5>
+            <ul class="space-y-2 mb-6">
+              ${ws.curriculum.map(item => `
+                <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-[#E30613] mt-0.5 flex-shrink-0"></i>
+                  <span>${item[lang]}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-slate-100">
+            <a 
+              href="${formUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="google-form-link w-full sm:w-auto flex-1 py-3 px-5 rounded-xl bg-[#E30613] hover:bg-[#C70410] text-white font-bold text-xs sm:text-sm text-center shadow-lg shadow-red-600/25 flex items-center justify-center gap-2 transition-all"
+            >
+              <span>${i18nDictionary[lang].workshops_register_btn}</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+
+            <button 
+              type="button" 
+              onclick="openPosterByIndex(${ws.id === 'workshop-anterior' ? 1 : 3})"
+              class="w-full sm:w-auto py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 transition-all"
+            >
+              <i data-lucide="image" class="w-4 h-4 text-[#0A142F]"></i>
+              <span>${lang === 'tr' ? 'Afişi İncele' : 'View Poster'}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  refreshLucide();
+}
+
+/* ==========================================================================
+   5. Posters Showcase & Modal Gallery (5 Official Posters)
+   ========================================================================== */
+
+function renderPostersShowcase() {
+  const container = document.getElementById('posters-showcase-container');
+  if (!container) return;
+
+  const lang = AppState.currentLang;
+
+  container.innerHTML = symposiumData.posters.map((poster, index) => {
+    return `
+      <div class="glass-card rounded-2xl overflow-hidden border border-slate-200 group hover:border-[#E30613] transition-all duration-300 flex flex-col justify-between">
+        <div class="relative overflow-hidden aspect-[3/4] bg-slate-900 cursor-pointer" onclick="openPosterByIndex(${index})">
+          <img 
+            src="${poster.src}" 
+            alt="${poster.title[lang]}" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0A142F]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span class="px-4 py-2 rounded-xl bg-[#E30613] text-white text-xs font-bold shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+              <i data-lucide="zoom-in" class="w-4 h-4"></i>
+              ${lang === 'tr' ? 'Büyüt / İncele' : 'Zoom Poster'}
+            </span>
+          </div>
+        </div>
+
+        <div class="p-4 bg-white flex items-center justify-between gap-2 border-t border-slate-100">
+          <div>
+            <h4 class="text-xs font-black text-[#0A142F] line-clamp-1">${poster.title[lang]}</h4>
+            <span class="text-[10px] text-slate-500 block line-clamp-1">${poster.subtitle[lang]}</span>
+          </div>
+          <button 
+            type="button" 
+            onclick="openPosterByIndex(${index})"
+            class="p-2 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-[#E30613] transition-colors"
+            title="Görüntüle"
+          >
+            <i data-lucide="maximize-2" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  refreshLucide();
+}
+
+function openPosterByIndex(index) {
+  AppState.activePosterIndex = index;
+  updateModalPoster();
+  openModal('modal-poster');
+}
+
+function switchModalPoster(index) {
+  AppState.activePosterIndex = index;
+  updateModalPoster();
+}
+
+function updateModalPoster() {
+  const lang = AppState.currentLang;
+  const poster = symposiumData.posters[AppState.activePosterIndex];
+  if (!poster) return;
+
+  const imgEl = document.getElementById('modal-poster-img');
+  const titleEl = document.getElementById('modal-poster-title-text');
+  const subtitleEl = document.getElementById('modal-poster-subtitle-text');
+  const downloadLink = document.getElementById('modal-poster-download');
+  const tabsContainer = document.getElementById('modal-poster-tabs');
+
+  if (imgEl) imgEl.src = poster.src;
+  if (titleEl) titleEl.textContent = poster.title[lang];
+  if (subtitleEl) subtitleEl.textContent = poster.subtitle[lang];
+  if (downloadLink) {
+    downloadLink.href = poster.src;
+    downloadLink.setAttribute('download', poster.src.split('/').pop());
+  }
+
+  // Update tabs buttons inside modal
+  if (tabsContainer) {
+    tabsContainer.innerHTML = symposiumData.posters.map((p, idx) => {
+      const active = idx === AppState.activePosterIndex;
+      const activeClass = active 
+        ? 'bg-[#E30613] text-white font-bold shadow-md' 
+        : 'bg-slate-800 text-slate-300 hover:bg-slate-700 font-semibold';
+      return `
+        <button 
+          type="button" 
+          onclick="switchModalPoster(${idx})"
+          class="px-3 py-1.5 rounded-lg text-xs whitespace-nowrap transition-all ${activeClass}"
+        >
+          ${idx + 1}. ${p.title[lang].split(':')[0]}
+        </button>
+      `;
+    }).join('');
+  }
+
+  refreshLucide();
+}
+
+/* ==========================================================================
+   6. Scientific Schedule Rendering & Day Tabs
    ========================================================================== */
 
 function setScheduleDay(dayKey) {
@@ -333,11 +557,11 @@ function setScheduleDay(dayKey) {
   const tabDay2 = document.getElementById('tab-day2');
 
   if (dayKey === 'day1') {
-    tabDay1.className = 'flex-1 py-3 px-5 text-sm font-bold rounded-xl bg-teal-600 text-white shadow-md transition-all flex items-center justify-center gap-2';
-    tabDay2.className = 'flex-1 py-3 px-5 text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all flex items-center justify-center gap-2';
+    tabDay1.className = 'flex-1 py-3 px-5 text-xs sm:text-sm font-bold rounded-xl bg-[#E30613] text-white shadow-md shadow-red-600/30 transition-all flex items-center justify-center gap-2';
+    tabDay2.className = 'flex-1 py-3 px-5 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center justify-center gap-2';
   } else {
-    tabDay2.className = 'flex-1 py-3 px-5 text-sm font-bold rounded-xl bg-teal-600 text-white shadow-md transition-all flex items-center justify-center gap-2';
-    tabDay1.className = 'flex-1 py-3 px-5 text-sm font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all flex items-center justify-center gap-2';
+    tabDay2.className = 'flex-1 py-3 px-5 text-xs sm:text-sm font-bold rounded-xl bg-[#E30613] text-white shadow-md shadow-red-600/30 transition-all flex items-center justify-center gap-2';
+    tabDay1.className = 'flex-1 py-3 px-5 text-xs sm:text-sm font-semibold rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all flex items-center justify-center gap-2';
   }
 
   renderSchedule();
@@ -350,9 +574,9 @@ function filterSchedule(type) {
   filterBtns.forEach(btn => {
     const f = btn.getAttribute('data-filter');
     if (f === type) {
-      btn.className = 'schedule-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white shadow-sm transition-all';
+      btn.className = 'schedule-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0A142F] text-white shadow-sm transition-all';
     } else {
-      btn.className = 'schedule-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all';
+      btn.className = 'schedule-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all';
     }
   });
 
@@ -389,35 +613,35 @@ function renderSchedule() {
     const isWorkshop = item.type === 'workshop';
     const isKeynote = item.type === 'keynote';
 
-    let cardBgClass = 'bg-white border-slate-200/80';
-    let iconBgClass = 'bg-teal-50 text-teal-600 border-teal-100';
-    let badgeClass = 'bg-teal-100/70 text-teal-800 border-teal-200';
+    let cardBgClass = 'bg-white border-slate-200/90';
+    let iconBgClass = 'bg-slate-100 text-[#0A142F] border-slate-200';
+    let badgeClass = 'bg-slate-100 text-slate-800 border-slate-200';
 
     if (isBreak) {
-      cardBgClass = 'bg-amber-50/40 border-amber-200/60';
-      iconBgClass = 'bg-amber-100 text-amber-700 border-amber-200';
-      badgeClass = 'bg-amber-100 text-amber-800 border-amber-200';
+      cardBgClass = 'bg-slate-50 border-slate-200';
+      iconBgClass = 'bg-slate-200/70 text-slate-700 border-slate-300';
+      badgeClass = 'bg-slate-200 text-slate-800 border-slate-300';
     } else if (isWorkshop) {
-      cardBgClass = 'bg-emerald-50/30 border-emerald-200/70';
-      iconBgClass = 'bg-emerald-100 text-emerald-700 border-emerald-200';
-      badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+      cardBgClass = 'bg-red-50/50 border-red-200 hover:border-[#E30613]';
+      iconBgClass = 'bg-red-100 text-[#E30613] border-red-200';
+      badgeClass = 'bg-[#E30613] text-white border-red-600';
     } else if (isKeynote) {
-      cardBgClass = 'bg-white border-slate-200/90 shadow-sm hover:border-teal-400';
-      iconBgClass = 'bg-blue-50 text-blue-700 border-blue-100';
-      badgeClass = 'bg-blue-100/70 text-blue-800 border-blue-200';
+      cardBgClass = 'bg-white border-slate-200/90 shadow-sm hover:border-[#E30613]';
+      iconBgClass = 'bg-[#0A142F] text-white border-[#0A142F]';
+      badgeClass = 'bg-slate-900 text-white border-slate-900';
     }
 
     return `
       <div class="relative pl-8 md:pl-32 pb-8 group last:pb-2">
         <!-- Stem node -->
-        <div class="absolute left-0 md:left-24 top-1 w-6 h-6 rounded-full bg-white border-2 border-teal-500 shadow-sm flex items-center justify-center -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300">
-          <div class="w-2 h-2 rounded-full bg-teal-600"></div>
+        <div class="absolute left-0 md:left-24 top-1 w-6 h-6 rounded-full bg-white border-2 border-[#E30613] shadow-sm flex items-center justify-center -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300">
+          <div class="w-2 h-2 rounded-full bg-[#E30613]"></div>
         </div>
 
         <!-- Desktop Time Pill -->
-        <div class="hidden md:block absolute left-0 top-0.5 w-20 text-right pr-4 text-xs font-bold text-slate-700">
+        <div class="hidden md:block absolute left-0 top-0.5 w-20 text-right pr-4 text-xs font-extrabold text-[#0A142F]">
           ${item.time.split(' - ')[0]}
-          <span class="block text-[11px] font-normal text-slate-400">${item.time.split(' - ')[1]}</span>
+          <span class="block text-[11px] font-normal text-slate-400">${item.time.split(' - ')[1] || ''}</span>
         </div>
 
         <!-- Schedule Card -->
@@ -425,15 +649,15 @@ function renderSchedule() {
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2.5">
             <!-- Mobile time & badges -->
             <div class="flex items-center flex-wrap gap-2">
-              <span class="md:hidden inline-flex items-center gap-1 text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-100">
-                <i data-lucide="clock" class="w-3 h-3"></i>
+              <span class="md:hidden inline-flex items-center gap-1 text-xs font-bold text-[#0A142F] bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
+                <i data-lucide="clock" class="w-3 h-3 text-[#E30613]"></i>
                 ${item.time}
               </span>
-              <span class="${badgeClass} text-[11px] font-semibold px-2.5 py-0.5 rounded-full border">
+              <span class="${badgeClass} text-[11px] font-bold px-2.5 py-0.5 rounded-full border">
                 ${item.badge[lang]}
               </span>
-              <span class="text-xs text-slate-500 flex items-center gap-1">
-                <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
+              <span class="text-xs text-slate-500 flex items-center gap-1 font-medium">
+                <i data-lucide="map-pin" class="w-3 h-3 text-[#E30613]"></i>
                 ${item.hall[lang]}
               </span>
             </div>
@@ -445,13 +669,13 @@ function renderSchedule() {
           </div>
 
           <!-- Title -->
-          <h4 class="text-base md:text-lg font-bold text-slate-900 mb-1 leading-snug">
+          <h4 class="text-base md:text-lg font-black text-[#0A142F] mb-1 leading-snug">
             ${item.title[lang]}
           </h4>
 
           <!-- Speaker / Host -->
-          <div class="flex items-center gap-2 text-xs md:text-sm font-medium text-slate-600">
-            <i data-lucide="user" class="w-3.5 h-3.5 text-teal-600 flex-shrink-0"></i>
+          <div class="flex items-center gap-2 text-xs md:text-sm font-semibold text-slate-600">
+            <i data-lucide="user" class="w-3.5 h-3.5 text-[#E30613] flex-shrink-0"></i>
             <span>${item.speaker[lang]}</span>
           </div>
         </div>
@@ -463,7 +687,69 @@ function renderSchedule() {
 }
 
 /* ==========================================================================
-   5. FAQs Accordion Rendering
+   7. Sponsors & Industry Partners Rendering (Official PDF List)
+   ========================================================================== */
+
+function renderSponsors() {
+  const container = document.getElementById('sponsors-grid');
+  if (!container) return;
+
+  const lang = AppState.currentLang;
+
+  container.innerHTML = symposiumData.sponsors.map(s => {
+    const categoryText = (typeof s.category === 'object' && s.category[lang]) ? s.category[lang] : (s.category[lang] || s.category);
+    return `
+      <div class="glass-card rounded-2xl p-6 bg-white border border-slate-200/90 shadow-sm hover:border-[#E30613]/60 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Official Brand Logo Container -->
+          <div class="h-20 sm:h-24 w-full rounded-xl bg-slate-50/80 border border-slate-100 flex items-center justify-center p-3.5 mb-5 group-hover:bg-white group-hover:border-red-100 transition-colors">
+            <img 
+              src="${s.logo}" 
+              alt="${s.name}" 
+              class="max-h-12 sm:max-h-14 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Brand Information -->
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#E30613]"></span>
+              <span class="text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase">${s.subtitle || 'SPONSOR'}</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-black text-[#0A142F] group-hover:text-[#E30613] transition-colors leading-tight mb-1.5">
+              ${s.name}
+            </h4>
+            <p class="text-xs text-slate-500 font-medium leading-relaxed">
+              ${categoryText}
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer / Link -->
+        <div class="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] font-bold text-slate-400 group-hover:text-[#E30613] transition-colors">
+            ${lang === 'tr' ? 'Resmi Partner' : 'Official Partner'}
+          </span>
+          <a 
+            href="${s.website}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-7 h-7 rounded-lg bg-slate-50 hover:bg-[#E30613] text-slate-400 hover:text-white flex items-center justify-center transition-all shadow-sm"
+            title="${s.name}"
+          >
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  refreshLucide();
+}
+
+/* ==========================================================================
+   8. FAQs Accordion Rendering
    ========================================================================== */
 
 function renderFaqs() {
@@ -474,7 +760,7 @@ function renderFaqs() {
 
   container.innerHTML = symposiumData.faqs.map((faq, index) => {
     return `
-      <div class="glass-card rounded-2xl border border-slate-200/80 overflow-hidden transition-all duration-200">
+      <div class="glass-card rounded-2xl border border-slate-200/90 overflow-hidden transition-all duration-200">
         <button 
           type="button" 
           onclick="toggleFaq(${index})"
@@ -482,8 +768,8 @@ function renderFaqs() {
           aria-expanded="false"
           id="faq-btn-${index}"
         >
-          <span class="text-sm md:text-base font-bold text-slate-800">${faq.q[lang]}</span>
-          <div class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center flex-shrink-0 transition-transform duration-300" id="faq-icon-${index}">
+          <span class="text-sm md:text-base font-bold text-[#0A142F]">${faq.q[lang]}</span>
+          <div class="w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center flex-shrink-0 transition-transform duration-300" id="faq-icon-${index}">
             <i data-lucide="chevron-down" class="w-4 h-4"></i>
           </div>
         </button>
@@ -534,7 +820,7 @@ function toggleFaq(index) {
 }
 
 /* ==========================================================================
-   6. Organizers & Leadership Rendering
+   9. Organizers & Leadership Rendering
    ========================================================================== */
 
 function renderOrganizers() {
@@ -545,21 +831,23 @@ function renderOrganizers() {
 
   container.innerHTML = symposiumData.organizers.map(org => {
     return `
-      <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex items-center gap-4 hover:border-teal-400 transition-all">
-        <img src="${org.image}" alt="${org.name}" class="w-14 h-14 rounded-full object-cover border-2 border-teal-500/40 shadow-sm flex-shrink-0" />
-        <div class="flex-1 min-w-0">
-          <h4 class="text-sm font-bold text-slate-900 truncate">${org.name}</h4>
-          <p class="text-xs font-semibold text-teal-600 truncate">${org.role[lang]}</p>
-          <div class="mt-2 flex items-center gap-3 text-xs text-slate-500">
-            <a href="tel:${org.phone.replace(/\s+/g, '')}" class="inline-flex items-center gap-1 hover:text-teal-700 transition-colors font-medium">
-              <i data-lucide="phone" class="w-3 h-3 text-teal-600"></i>
-              ${org.phone}
-            </a>
-            <a href="mailto:${org.email}" class="inline-flex items-center gap-1 hover:text-teal-700 transition-colors truncate">
-              <i data-lucide="mail" class="w-3 h-3 text-teal-600"></i>
-              <span class="truncate">${org.email}</span>
-            </a>
+      <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:border-[#E30613]/50 hover:shadow-md transition-all flex flex-col justify-between">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-[#E30613] text-xs font-bold mb-3 border border-red-100">
+            <span class="w-2 h-2 rounded-full bg-[#E30613]"></span>
+            ${org.role[lang]}
           </div>
+          <h4 class="text-base sm:text-lg font-black text-[#0A142F]">${org.name}</h4>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2 text-xs text-slate-600">
+          <a href="tel:${org.phone.replace(/\s+/g, '')}" class="inline-flex items-center gap-2 hover:text-[#E30613] transition-colors font-medium">
+            <i data-lucide="phone" class="w-4 h-4 text-[#E30613] flex-shrink-0"></i>
+            <span>${org.phone}</span>
+          </a>
+          <a href="mailto:${org.email}" class="inline-flex items-center gap-2 hover:text-[#E30613] transition-colors truncate">
+            <i data-lucide="mail" class="w-4 h-4 text-[#E30613] flex-shrink-0"></i>
+            <span class="truncate">${org.email}</span>
+          </a>
         </div>
       </div>
     `;
@@ -569,7 +857,7 @@ function renderOrganizers() {
 }
 
 /* ==========================================================================
-   7. Navigation, Scroll Effects & Mobile Drawer
+   10. Navigation, Scroll Effects & Mobile Drawer
    ========================================================================== */
 
 function initNavigation() {
@@ -633,18 +921,16 @@ function initScrollEffects() {
 }
 
 /* ==========================================================================
-   8. Modal System
+   11. Modal System
    ========================================================================== */
 
 function initModals() {
-  // Close modals on escape key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeAllModals();
     }
   });
 
-  // Close modals on clicking overlay backdrop
   const modalOverlays = document.querySelectorAll('.modal-overlay');
   modalOverlays.forEach(overlay => {
     overlay.addEventListener('click', e => {
@@ -661,6 +947,11 @@ function openModal(modalId) {
 
   modal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
+
+  if (modalId === 'modal-poster') {
+    updateModalPoster();
+  }
+
   refreshLucide();
 }
 
@@ -679,7 +970,7 @@ function closeAllModals() {
 }
 
 /* ==========================================================================
-   9. Contact Form Handling
+   12. Contact Form Handling
    ========================================================================== */
 
 function initForms() {
@@ -708,14 +999,14 @@ function initForms() {
 }
 
 /* ==========================================================================
-   10. Calendar Export (iCal / Google Calendar)
+   13. Calendar Export (December 5, 2026)
    ========================================================================== */
 
 function downloadCalendar() {
   const lang = AppState.currentLang;
-  const title = "Dentistry 5.0: Dijitalden Bireyele - AUDSA Sempozyumu";
-  const desc = "Altinbas Universitesi Dis Hekimligi Fakultesi Ogrenci Kulubu Yillik Sempozyumu. Bakirkoy Saglik Yerleskesi Buyuk Oditoryumu.";
-  const location = "Altinbas Universitesi Bakirkoy Saglik Kampusu, Buyuk Oditoryum, Istanbul";
+  const title = "Dentistry 5.0: Dijitalden Bireysele - AUDSA Sempozyumu";
+  const desc = "Altinbas Universitesi Dis Hekimligi Fakultesi Yillik Sempozyumu & Hands-on Egitimleri. Kayit Formu: https://forms.gle/BFu1sdK98rwNL6zg8";
+  const location = "Altinbas Universitesi Bakirkoy Yerleskesi & Altinbas Diş Hastanesi, Istanbul";
   
   const icsData = [
     "BEGIN:VCALENDAR",
@@ -724,10 +1015,10 @@ function downloadCalendar() {
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
-    "UID:audsa-dentistry-5-2026@altinbas.edu.tr",
-    "DTSTAMP:20260924T090000Z",
-    "DTSTART:20261024T063000Z",
-    "DTEND:20261025T140000Z",
+    "UID:audsa-dentistry-5-20261205@altinbas.edu.tr",
+    "DTSTAMP:20261006T090000Z",
+    "DTSTART:20261205T060000Z",
+    "DTEND:20261205T150000Z",
     `SUMMARY:${title}`,
     `DESCRIPTION:${desc}`,
     `LOCATION:${location}`,
@@ -739,7 +1030,7 @@ function downloadCalendar() {
   const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
   const link = document.createElement("a");
   link.href = window.URL.createObjectURL(blob);
-  link.setAttribute("download", "AUDSA-Dentistry-5.0-Sempozyum.ics");
+  link.setAttribute("download", "AUDSA-Dentistry-5.0-Sempozyum-5-Aralik.ics");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -748,7 +1039,7 @@ function downloadCalendar() {
 }
 
 /* ==========================================================================
-   11. Toast Notification System
+   14. Toast Notification System
    ========================================================================== */
 
 function showToast(message, type = 'info') {
@@ -758,19 +1049,19 @@ function showToast(message, type = 'info') {
   const toast = document.createElement('div');
   
   let iconName = 'info';
-  let borderClass = 'border-teal-500/60 bg-slate-900/95 text-white';
+  let borderClass = 'border-[#E30613]/60 bg-[#0A142F]/95 text-white';
 
   if (type === 'success') {
     iconName = 'check-circle-2';
-    borderClass = 'border-emerald-500/80 bg-slate-900/95 text-white';
+    borderClass = 'border-emerald-500/80 bg-[#0A142F]/95 text-white';
   } else if (type === 'warning') {
     iconName = 'alert-triangle';
-    borderClass = 'border-amber-500/80 bg-slate-900/95 text-white';
+    borderClass = 'border-amber-500/80 bg-[#0A142F]/95 text-white';
   }
 
   toast.className = `flex items-center gap-3 px-4 py-3 rounded-2xl shadow-2xl backdrop-blur-lg border ${borderClass} text-xs font-semibold transform translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto`;
   toast.innerHTML = `
-    <i data-lucide="${iconName}" class="w-4 h-4 text-teal-400 flex-shrink-0"></i>
+    <i data-lucide="${iconName}" class="w-4 h-4 text-[#E30613] flex-shrink-0"></i>
     <span>${message}</span>
   `;
 
